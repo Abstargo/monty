@@ -8,7 +8,7 @@ void f_pall(stack_t **head, unsigned int counter)
     h = *head;
     if (h == NULL)
     {
-        return (-1);
+        return;
     }
     while (h)
     {

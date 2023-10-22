@@ -2,13 +2,13 @@
 #define MONTY_H
 
 #include <stdio.h>
+#include<string.h>
 #include <stdlib.h>
 #include <strings.h>
 #include <unistd.h>
 #include <stddef.h>
 
 #define _GNU_SOURCE
-bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

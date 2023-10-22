@@ -2,7 +2,7 @@
 
 void f_push(stack_t **head, unsigned int counter)
 {
-    int i, m = 0, flag = 0;
+    int m = 0, flag = 0;
 
     if (bus.arg)
     {
@@ -32,14 +32,6 @@ void f_push(stack_t **head, unsigned int counter)
             free(bus.content);
             free_stack(*head);
             exit(EXIT_FAILURE);
-        }
-        i = atoi(bus.arg);
-        if (bus.lifi == 0)
-        {
-            addnode(head, i);
-        }
-        else{
-            addqueque(head, i);
         }
     }
 }
