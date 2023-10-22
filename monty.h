@@ -7,19 +7,8 @@
 #include <unistd.h>
 #include <stddef.h>
 
-#define STACK_SIZE 100
-
-bus_t bus = {{0}, -1, NULL, NULL, NULL};
-
-typedef struct bus_s
-{
-    int stack[STACK_SIZE];
-    int top;
-    FILE *file;
-    char *content;
-    char *arg;
-} bus_t;
-
+#define _GNU_SOURCE
+bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -50,8 +39,34 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct bus_s - variables -args, file, line content
+ * @arg: value
+ * @file: pointer to monty file
+ * @content: line content
+ * @lifi: flag change stack <-> queue
+ *
+ * Description: carries values through the program
+ */
+typedef struct bus_s
+{
+	char *arg;
+	FILE *file;
+	char *content;
+	int lifi;
+}  bus_t;
+extern bus_t bus;
+
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
+ssize_t getstdin(char **lineptr, int file);
+
+char  *clean_line(char *content);
+
 void f_nop(stack_t **head, unsigned int counter);
 void f_push(stack_t **head, unsigned int counter);
+void free_stack(stack_t *head);
+void f_stack(stack_t **head, unsigned int counter);
 void f_add(stack_t **head, unsigned int counter);
 void f_pall(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
