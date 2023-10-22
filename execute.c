@@ -1,39 +1,51 @@
 #include "monty.h"
 
-void execute(unsigned int counter)
+/**
+ * execute - execute the code
+ * @stack: stack of linked list
+ * @counter: line counter
+ * @file: pointer to monty file stream
+ * @content: line content
+ * 
+ * Return: none
+*/
+
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
-    if (!bus.content || bus.content[0] == '\n' || bus.content[0] == '#')
-        return;
-
+    instruction_t opst[] = {
+        {"push", f_push}, 
+        {"pall", f_pall},
+        {"swap", f_swap},
+        {"pint", f_pint},
+        {"add", f_add},
+        {"nop", f_nop}
+        {NULL, NULL}
+    };
+    unsigned int i = 0;
     char *op;
-    op = strtok(bus.content, " \n\t");
 
-    if (op) {
-        if (strcmp(op, "push") == 0) {
-            bus.arg = strtok(NULL, " \n\t");
-            if (!bus.arg) {
-                fprintf(stderr, "L%d: Error: usage: push integer\n", counter);
-                fclose(bus.file);
-                free(bus.content);
-                exit(EXIT_FAILURE);
-            }
-            int value;
-            char *endptr;
-            value = strtol(bus.arg, &endptr, 10);
-            if (*endptr != '\0' && *endptr != '\n') {
-                fprintf(stderr, "L%d: Error: usage: push integer\n", counter);
-                fclose(bus.file);
-                free(bus.content);
-                exit(EXIT_FAILURE);
-            }
-            push(value, counter);
-        } else if (strcmp(op, "pall") == 0) {
-            pall(counter);
-        } else {
-            fprintf(stderr, "L%d: Error: unknown instruction %s\n", counter, op);
-            fclose(bus.file);
-            free(bus.content);
-            exit(EXIT_FAILURE);
-        }
+    op = strtok(content, " \n\t");
+    if (op && op[0] == '#')
+    {
+        return (0);
     }
+    bus.arg = strtok(NULL, " \n\t");
+    while (opst[i].opcode && op)
+    {
+        if (strcmp(op, opst[i].opcode) == 0)
+        {
+            opst[i].f(stack, counter);
+            return (0);
+        }
+        i++;
+    }
+    if (op && opst[i].opcode == NULL)
+    {
+        fprintf(stderr, "L%d: unkown instruction %s\n", counter, op);
+        fclose(file);
+        free(content);
+        free_stack(*stack);
+        exit(EXIT_FAILURE);
+    }
+    return (1);
 }
