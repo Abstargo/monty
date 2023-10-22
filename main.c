@@ -3,6 +3,8 @@
 int main(int argc, char *argv[])
 {
     char *content;
+    FILE *file;
+    stack_t *stack = NULL;
     size_t size = 0;
     ssize_t read_line = 1;
     unsigned int counter = 0;
@@ -28,11 +30,12 @@ int main(int argc, char *argv[])
         counter++;
         if (read_line > 0)
         {
-            execute(counter);
+            execute(content, &stack, counter, file);
         }
         free(content);
     }
 
+    free_stack(stack);
     fclose(bus.file);
     return (0);
 }
