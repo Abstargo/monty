@@ -20,3 +20,4 @@ void pint_function3(stack_t **head, unsigned int counter)
 
 	printf("%d\n", (*head)->n);
 }
+

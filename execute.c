@@ -7,13 +7,14 @@
  * @coun: Line count.
  * @file: Pointer to file stream.
  *
- * Executes the provided opcode. If successful,
- * returns 0; otherwise, returns 1.
+ * Return: 0; otherwise, returns 1.
  */
 int execute(char *content, stack_t **stack, unsigned int coun, FILE *file)
 {
 	instruction_t opst[] = {
-				{"push", push_function2}, {"pall", pall_function1}, {"pint", pint_function3},
+				{"push", push_function2},
+				{"pall", pall_function1},
+				{"pint", pint_function3},
 				{"pop", pop_function5},
 				{"swap", swap_function4},
 				{"add", f_add},
@@ -44,3 +45,4 @@ int execute(char *content, stack_t **stack, unsigned int coun, FILE *file)
 		exit(EXIT_FAILURE); }
 	return (1);
 }
+

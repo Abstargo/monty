@@ -9,6 +9,7 @@
  */
 void nop_function5(stack_t **head, unsigned int counter)
 {
-    (void) counter;
-    (void) head;
+(void) counter;
+(void) head;
 }
+

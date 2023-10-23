@@ -24,3 +24,4 @@ void pop_function5(stack_t **head, unsigned int counter)
 	*head = h->next;
 	free(h);
 }
+

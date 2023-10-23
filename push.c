@@ -23,23 +23,24 @@ void push_function2(stack_t **head, unsigned int counter)
 		for (k = 0; bus.arg[k] != '\0'; k++)
 		{
 			if (bus.arg[k] > 57 || bus.arg[k] < 48)
-            {
+			{
 				Ss = 1;
-            }
-        }
+			}
+		}
 		if (Ss == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 			fclose(bus.file);
 			free(bus.content);
 			free_stack(*head);
-			exit(EXIT_FAILURE); 
-        }
-    }
+			exit(EXIT_FAILURE);
+		}
+	}
 	else
 	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
-		exit(EXIT_FAILURE); 
-    }
+		exit(EXIT_FAILURE);
+	}
 }
+

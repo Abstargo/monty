@@ -1,16 +1,14 @@
 #include "monty.h"
 #define _GNU_SOURCE
 
-bus_t bus = {NULL, NULL, NULL, 0};
+static bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
  * main - Monty code interpreter.
  * @argc: Argument counter.
  * @argv: Argument vector.
  *
- * Interprets Monty bytecode from a file.
- *
- * Returns: Always returns 0.
+ * Return: Always returns 0.
  */
 int main(int argc, char *argv[])
 {
@@ -53,3 +51,4 @@ int main(int argc, char *argv[])
 	fclose(file);
 	return (0);
 }
+

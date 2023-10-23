@@ -39,3 +39,4 @@ void f_add(stack_t **head, unsigned int coun)
 	*head = h->next;
 	free(h);
 }
+
