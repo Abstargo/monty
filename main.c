@@ -1,7 +1,6 @@
 #include "monty.h"
-#define _GNU_SOURCE
 
-static bus_t bus = {NULL, NULL, NULL, 0};
+bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
  * main - Monty code interpreter.
