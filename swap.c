@@ -1,17 +1,24 @@
 #include "monty.h"
 
-void f_swap(stack_t **head, unsigned int counter)
+/**
+ * swap_function4 - Swaps the top two elements of the stack.
+ * @head: Pointer to pointer to first node.
+ * @counter: Line counter.
+ *
+ * Return: None.
+ */
+void swap_function4(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
-	int length = 0, temp;
+	int len = 0, temp;
 
 	h = *head;
 	while (h)
 	{
 		h = h->next;
-		length++;
+		len++;
 	}
-	if (length < 2)
+	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
 		fclose(bus.file);

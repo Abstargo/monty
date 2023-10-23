@@ -1,6 +1,13 @@
 #include "monty.h"
 
-void f_pint(stack_t **head, unsigned int counter)
+/**
+ * pint_function3 - Prints the top element of the stack.
+ * @head: Pointer to pointer to first node.
+ * @counter: Line counter.
+ *
+ * Return: None.
+ */
+void pint_function3(stack_t **head, unsigned int counter)
 {
 	if (*head == NULL)
 	{

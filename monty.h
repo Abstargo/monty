@@ -65,16 +65,16 @@ ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
 void free_stack(stack_t *head);
 
-int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
+int execute(char *content, stack_t **head, unsigned int coun, FILE *file);
 
-void f_push(stack_t **head, unsigned int number);
-void f_pall(stack_t **head, unsigned int number);
-void f_pint(stack_t **head, unsigned int number);
-void f_pop(stack_t **head, unsigned int counter);
-void f_swap(stack_t **head, unsigned int counter);
-void f_nop(stack_t **head, unsigned int counter);
+void push_function2(stack_t **head, unsigned int number);
+void pall_function1(stack_t **head, unsigned int number);
+void pint_function3(stack_t **head, unsigned int number);
+void pop_function5(stack_t **head, unsigned int coun);
+void swap_function4(stack_t **head, unsigned int coun);
+void nop_function5(stack_t **head, unsigned int coun);
 
-void f_add(stack_t **head, unsigned int counter);
-void f_stack(stack_t **head, unsigned int counter);
+void f_add(stack_t **head, unsigned int coun);
+void f_stack(stack_t **head, unsigned int coun);
 
 #endif

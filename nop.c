@@ -1,6 +1,13 @@
 #include "monty.h"
 
-void f_nop(stack_t **head, unsigned int counter)
+/**
+ * nop_function5 - Does nothing.
+ * @head: Pointer to pointer to first node.
+ * @counter: Line counter.
+ *
+ * Returns: None.
+ */
+void nop_function5(stack_t **head, unsigned int counter)
 {
     (void) counter;
     (void) head;

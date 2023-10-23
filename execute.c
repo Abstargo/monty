@@ -1,22 +1,23 @@
 #include "monty.h"
 
 /**
-* execute - execute opcode
-* @stack: stack of linked list
-* @counter: line counter
-* @file: pointer to monty file stream
-* @content: line content
-*
-* Return: none
-*/
-int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
+ * execute - Executes an opcode.
+ * @content: Line content.
+ * @stack: Pointer to stack.
+ * @coun: Line count.
+ * @file: Pointer to file stream.
+ *
+ * Executes the provided opcode. If successful,
+ * returns 0; otherwise, returns 1.
+ */
+int execute(char *content, stack_t **stack, unsigned int coun, FILE *file)
 {
 	instruction_t opst[] = {
-				{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
-				{"pop", f_pop},
-				{"swap", f_swap},
+				{"push", push_function2}, {"pall", pall_function1}, {"pint", pint_function3},
+				{"pop", pop_function5},
+				{"swap", swap_function4},
 				{"add", f_add},
-				{"nop", f_nop},
+				{"nop", nop_function5},
 				{"stack", f_stack},
 				{NULL, NULL}
 				};
@@ -30,13 +31,13 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	while (opst[i].opcode && op)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
-		{	opst[i].f(stack, counter);
+		{	opst[i].f(stack, coun);
 			return (0);
 		}
 		i++;
 	}
 	if (op && opst[i].opcode == NULL)
-	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
+	{ fprintf(stderr, "L%d: unknown instruction %s\n", coun, op);
 		fclose(file);
 		free(content);
 		free_stack(*stack);

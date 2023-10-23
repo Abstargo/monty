@@ -4,12 +4,14 @@
 bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
-* main - monty code interpreter
-* @argc: argument counter
-* @argv: argument vector
-*
-* Return: always 0
-*/
+ * main - Monty code interpreter.
+ * @argc: Argument counter.
+ * @argv: Argument vector.
+ *
+ * Interprets Monty bytecode from a file.
+ *
+ * Returns: Always returns 0.
+ */
 int main(int argc, char *argv[])
 {
 	char *content;
@@ -17,7 +19,7 @@ int main(int argc, char *argv[])
 	size_t size = 0;
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
-	unsigned int counter = 0;
+	unsigned int coun = 0;
 
 	if (argc != 2)
 	{
@@ -39,10 +41,10 @@ int main(int argc, char *argv[])
 		content = NULL;
 		read_line = getline(&content, &size, file);
 		bus.content = content;
-		counter++;
+		coun++;
 
 		if (read_line > 0)
-			execute(content, &stack, counter, file);
+			execute(content, &stack, coun, file);
 
 		free(content);
 	}

@@ -1,27 +1,33 @@
 #include "monty.h"
 
 /**
- * f_add - add first 2 elements of the stack
- * @head: pointer to pointer to first node
- * @counter: line counter
+ * f_add - Adds the first two elements of the stack.
+ * @head: Pointer to pointer to the first node.
+ * @coun: Line counter.
  *
- * Return: none
+ * Description:
+ * This function takes a pointer to the pointer
+ * of the first node (`head`) and
+ * the current line count (`coun`).
+ * It adds the values of the first two elements
+ * on the stack and replaces the second element with the result.
+ *
+ * Return: None.
  */
-
-void f_add(stack_t **head, unsigned int counter)
+void f_add(stack_t **head, unsigned int coun)
 {
 	stack_t *h;
-	int length = 0, temp;
+	int len = 0, temp;
 
 	h = *head;
 	while (h)
 	{
 		h = h->next;
-		length++;
+		len++;
 	}
-	if (length < 2)
+	if (len < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't add, stack too short\n", coun);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);

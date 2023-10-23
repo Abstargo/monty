@@ -1,34 +1,45 @@
 #include "monty.h"
 
 /**
- * f_push - function that adds node to the stack
- * @head: double head pointer to the stack
- * @counter: line count
+ * push_function2 - Adds a new node to the stack.
+ * @head: Double pointer to the top of the stack.
+ * @counter: Line count.
  *
- * Return: nothing
+ * Description:
+ * This function takes a double pointer to
+ * the top of the stack (`head`) and
+ * the current line count (`counter`).
+ * It checks if a valid integer is provided
+ * as an argument and pushes it onto the stack.
  */
-void f_push(stack_t **head, unsigned int counter)
+void push_function2(stack_t **head, unsigned int counter)
 {
-	int m = 0, flag = 0;
+	int k = 0, Ss = 0;
 
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
-			m++;
-		for (; bus.arg[m] != '\0'; m++)
+			k++;
+		for (k = 0; bus.arg[k] != '\0'; k++)
 		{
-			if (bus.arg[m] > 57 || bus.arg[m] < 48)
-				flag = 1; }
-		if (flag == 1)
+			if (bus.arg[k] > 57 || bus.arg[k] < 48)
+            {
+				Ss = 1;
+            }
+        }
+		if (Ss == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 			fclose(bus.file);
 			free(bus.content);
 			free_stack(*head);
-			exit(EXIT_FAILURE); }}
+			exit(EXIT_FAILURE); 
+        }
+    }
 	else
 	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
-		exit(EXIT_FAILURE); }
+		exit(EXIT_FAILURE); 
+    }
 }

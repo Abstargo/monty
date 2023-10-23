@@ -1,6 +1,13 @@
 #include "monty.h"
 
-void f_pall(stack_t **head, unsigned int counter)
+/**
+ * pall_function1 - Prints all elements of the stack.
+ * @head: Pointer to pointer to first node.
+ * @counter: Line counter.
+ *
+ * Return: None.
+ */
+void pall_function1(stack_t **head, unsigned int counter)
 {
     stack_t *h;
     (void)counter;
