@@ -42,10 +42,10 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * struct bus_s - variables -args, file, line content
+ * struct bus_s - variables -args, file, line cont
  * @arg: value
  * @file: pointer to monty file
- * @content: line content
+ * @cont: line cont
  * @lifi: flag change stack <-> queue
  *
  * Description: carries values through the program
@@ -54,7 +54,7 @@ typedef struct bus_s
 {
 	char *arg;
 	FILE *file;
-	char *content;
+	char *cont;
 	int lifi;
 }  bus_t;
 extern bus_t bus;
@@ -64,10 +64,10 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 
-char  *clean_line(char *content);
+char  *clean_line(char *cont);
 void free_stack(stack_t *head);
 
-int execute(char *content, stack_t **head, unsigned int coun, FILE *file);
+int execute(char *cont, stack_t **head, unsigned int coun, FILE *file);
 
 void push_function2(stack_t **head, unsigned int number);
 void pall_function1(stack_t **head, unsigned int number);

@@ -29,7 +29,7 @@ void f_add(stack_t **head, unsigned int coun)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", coun);
 		fclose(bus.file);
-		free(bus.content);
+		free(bus.cont);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}

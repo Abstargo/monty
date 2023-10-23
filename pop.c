@@ -15,7 +15,7 @@ void pop_function5(stack_t **head, unsigned int counter)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
 		fclose(bus.file);
-		free(bus.content);
+		free(bus.cont);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}

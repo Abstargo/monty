@@ -30,7 +30,7 @@ void push_function2(stack_t **head, unsigned int counter)
 		if (Ss == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 			fclose(bus.file);
-			free(bus.content);
+			free(bus.cont);
 			free_stack(*head);
 			exit(EXIT_FAILURE);
 		}
@@ -38,7 +38,7 @@ void push_function2(stack_t **head, unsigned int counter)
 	else
 	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(bus.file);
-		free(bus.content);
+		free(bus.cont);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}

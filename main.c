@@ -11,10 +11,10 @@ bus_t bus = {NULL, NULL, NULL, 0};
  */
 int main(int argc, char *argv[])
 {
-	char *content;
+	char *cont;
 	FILE *file;
 	size_t size = 0;
-	ssize_t read_line = 1;
+	ssize_t rr = 1;
 	stack_t *stack = NULL;
 	unsigned int coun = 0;
 
@@ -33,17 +33,17 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	while (read_line > 0)
+	while (rr > 0)
 	{
-		content = NULL;
-		read_line = getline(&content, &size, file);
-		bus.content = content;
+		cont = NULL;
+		rr = getline(&cont, &size, file);
+		bus.cont = cont;
 		coun++;
 
-		if (read_line > 0)
-			execute(content, &stack, coun, file);
+		if (rr > 0)
+			execute(cont, &stack, coun, file);
 
-		free(content);
+		free(cont);
 	}
 
 	free_stack(stack);
